@@ -1,9 +1,5 @@
 package utilities;
 
-
-import pojo.PPromoCode;
-import pojo.User;
-
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -83,15 +79,16 @@ public class DBUtilities {
     public static void createNewAddress(Integer owner_id, String AddressTitle, Integer is_default) {
 
         String query = "INSERT INTO address (owner_id,title,address,city, state,postal, is_default)"
-                + " VALUES('"+owner_id+"','"+AddressTitle+"','San Jose, CA 95109, USA','San Jose','Santa Clara County', 95109, '"+is_default+"');";
+                + " VALUES('" + owner_id + "','" + AddressTitle + "','San Jose, CA 95109, USA','San Jose','Santa Clara County', 95109, '" + is_default + "');";
 
         executeQueryStatement(query);
     }
+
     //prommo Code create etmek için kullanabilirsiniz
     public static void createPromoCode(String promoCodeName, String startDate, String endDate) {
 
         String query = "INSERT INTO promo_code (code,discount,discount_type,ends_at,starts_at)"
-                + " VALUES('"+promoCodeName+"',30,'percentage','"+startDate+".000000','"+endDate+"');";
+                + " VALUES('" + promoCodeName + "',30,'percentage','" + startDate + ".000000','" + endDate + "');";
 
         executeQueryStatement(query);
     }
@@ -118,25 +115,25 @@ public class DBUtilities {
 
     //prommo Code Update etmek için kullanabilirsiniz
     public static void updatePromoCode(String columnName, String columnValue, int id) {
-        String query = "update promo_code set "+columnName+" = '"+columnValue+"' where promo_code.id = "+id+";";
+        String query = "update promo_code set " + columnName + " = '" + columnValue + "' where promo_code.id = " + id + ";";
         executeQueryStatement(query);
     }
 
     //prommo Code Delete etmek için kullanabilirsiniz
     public static void deletePromoCode(int id) {
-        String query = "DELETE FROM promo_code WHERE promo_code.id = "+id+";";
+        String query = "DELETE FROM promo_code WHERE promo_code.id = " + id + ";";
         executeQueryStatement(query);
     }
 
     //istenen listedeki elementi Update etmek için kullanabilirsiniz
     public static void updateElement(String columnName, String columnValue, int id, String listName) {
-        String query = "update"+ listName +" "+columnName+" = '"+columnValue+"' where"+ listName+".id = "+id+";";
+        String query = "update" + listName + " " + columnName + " = '" + columnValue + "' where" + listName + ".id = " + id + ";";
         executeQueryStatement(query);
     }
 
     // istenen listeden Delete islemi yapmak icin
-    public static void deleteElementFromRelatedList(int id, String listName){
-        String query = "DELETE FROM "+ listName+" WHERE "+listName+".id= "+id+";";
+    public static void deleteElementFromRelatedList(int id, String listName) {
+        String query = "DELETE FROM " + listName + " WHERE " + listName + ".id= " + id + ";";
         executeQueryStatement(query);
 
     }
@@ -173,6 +170,7 @@ public class DBUtilities {
         return list;
     }
 
+    /*
     //promo Code listesini okumak için kullanabilirsiniz, List<PPromoCode> bir liste dönecek
     public static List<PPromoCode> getPromoCodeList_pojo() throws SQLException {
 
@@ -196,20 +194,20 @@ public class DBUtilities {
         }
         return list;
     }
+     */
 
-
-    public static void createUser(int allow_anonymous_chat, int browser_notifications,int is_verified,
-                                  Object delivery_type,String email,String first_name,
-                                  String password,Object roles){
+    public static void createUser(int allow_anonymous_chat, int browser_notifications, int is_verified,
+                                  Object delivery_type, String email, String first_name,
+                                  String password, Object roles) {
 
         String query = "insert into user (allow_anonymous_chat,browser_notifications,delivery_type,email,first_name,is_verified,password,roles)"
-                  +"values("+allow_anonymous_chat+","+browser_notifications+","+delivery_type+","+email+","+first_name+","+is_verified+", "+password+","+roles+"')";
+                + "values(" + allow_anonymous_chat + "," + browser_notifications + "," + delivery_type + "," + email + "," + first_name + "," + is_verified + ", " + password + "," + roles + "')";
 
         executeQueryStatement(query);
 
     }
 
-
+/*
     //user listesini okumak için kullanabilirsiniz, List<User> bir liste dönecek
     public static List<User> getUserList_pojo() throws SQLException {
 
@@ -220,9 +218,9 @@ public class DBUtilities {
 
         while (resultSet.next()) {
 
-            User user=new User(
-                   resultSet.getInt("allow_anonymous_chat"),
-                   resultSet.getInt("browser_notifications"),
+            User user = new User(
+                    resultSet.getInt("allow_anonymous_chat"),
+                    resultSet.getInt("browser_notifications"),
                     resultSet.getInt("is_verified"),
                     resultSet.getString("delivery_type"),
                     resultSet.getString("email"),
@@ -236,5 +234,7 @@ public class DBUtilities {
         }
         return list;
     }
+
+ */
 
 }

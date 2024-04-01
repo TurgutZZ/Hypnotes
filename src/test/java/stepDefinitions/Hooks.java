@@ -155,7 +155,7 @@ public class Hooks extends CommonPage {
 
         return token;
     }
-
+/*
     @Before("@user3token")
     public void user3Token() {
         getToken(USER3);
@@ -179,4 +179,6 @@ public class Hooks extends CommonPage {
     public void userUrbanic2Token() {
         getToken(USER2);
     }
+
+ */
 }
