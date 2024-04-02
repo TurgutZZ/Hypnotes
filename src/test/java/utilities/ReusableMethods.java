@@ -460,7 +460,7 @@ public class ReusableMethods {
     // bir dosyaya birşeyler yazdırmak için kullanabilirisiniz
     // parametre olarak dosyanın path'ini ve yazılacak data adını girmelisiniz
     // String path = System.getProperty("user.dir") + "/src/test/resources/dummy.txt";
-    public static void writeOverTxt(String path, int keepData) {
+    public static void writeOverTxt(String path, String keepData) {
         FileWriter file = null;
         try {
             file = new FileWriter(path);

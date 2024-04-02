@@ -23,6 +23,7 @@ public class EducationAdd_Stepdefs extends CommonPage {
     @And("User clicks add new education button")
     public void userClicksAddNewEducationButton() {
         ReusableMethods.clickElement(getProfilePage().addNewEducationButton);
+        getProfilePage().addedEducations();
     }
 
     @Then("User fills in the boxes School Name Department Start Date")
@@ -32,11 +33,13 @@ public class EducationAdd_Stepdefs extends CommonPage {
 
     @And("User clicks save button")
     public void userClicksSaveButton() {
+        ReusableMethods.waitFor(2);
         ReusableMethods.clickElement(getProfilePage().saveButton);
+        ReusableMethods.waitFor(2);
     }
 
     @Then("User should see the added education under the education heading")
     public void userShouldSeeTheAddedEducationUnderTheEducationHeading() {
-
+        getProfilePage().verifyAddedEducations();
     }
 }

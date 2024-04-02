@@ -7,6 +7,6 @@ Feature: us_001
     Then User accesses the profile page successfully
     And User clicks add new education button
     Then User fills in the boxes School Name Department Start Date
-      | KesifPlus | IT | 03/15/2024 |
+      | KesifPlus | IT | 01/01/2024 |
     And User clicks save button
     Then User should see the added education under the education heading
